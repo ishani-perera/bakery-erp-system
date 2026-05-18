@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: bakery-erp-system
+    env: node
+    plan: free
+    buildCommand: npm install --prefix server && npm install --prefix client
+    startCommand: npm start --prefix server
+    envVars:
+      - key: NODE_ENV
+        value: production
