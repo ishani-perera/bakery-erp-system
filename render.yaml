@@ -2,17 +2,18 @@ services:
   - type: web
     name: bakery-erp-backend
     env: node
-    buildFilter:
-      paths:
-        - server/**
     plan: free
     baseDir: server
-    buildCommand: npm ci --build-from-source
+    buildCommand: npm ci && npm rebuild sqlite3 --build-from-source
     startCommand: node index.js
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 5000
+      - key: NODE_VERSION
+        value: 20.11.0
       - key: npm_config_build_from_source
         value: "true"
+      - key: npm_config_python
+        value: "python3"
