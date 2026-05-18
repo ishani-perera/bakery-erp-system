@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from "react";
 export default function Changelog() {
     return (
         <div style={{ padding: '30px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
