@@ -1,0 +1,232 @@
+.sidebar {
+  width: 280px;
+  background-color: var(--sidebar-bg);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: var(--cream-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.75rem 0;
+  z-index: 1000;
+  border-right: var(--border-separator-light);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 0 1.25rem;
+  margin-bottom: 2rem;
+  gap: 0.75rem;
+  border-bottom: var(--border-separator-light);
+  padding-bottom: 1.25rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+.logoIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+  background: var(--brand-amber);
+  flex-shrink: 0;
+}
+
+.logoText h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--cream-text);
+  letter-spacing: 0.5px;
+}
+
+.logoText span {
+  font-size: 10px;
+  color: var(--text-hint);
+  font-weight: 400;
+  display: block;
+}
+
+.navMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0 0.75rem;
+}
+
+.navLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--sidebar-section-text);
+  padding: 0 1rem;
+  margin: 1.25rem 0 0.5rem 0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  color: var(--sidebar-nav-muted);
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  transition:
+    color var(--transition-speed) ease,
+    background-color var(--transition-speed) ease,
+    border-color var(--transition-speed) ease;
+  border-radius: 10px;
+  border-left: 3px solid transparent;
+}
+
+.navLink:hover {
+  color: var(--sidebar-nav-hover-text);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.active {
+  color: var(--gold-text) !important;
+  background: rgba(245, 200, 120, 0.1) !important;
+  border-left: 3px solid var(--brand-amber) !important;
+  box-shadow: none !important;
+}
+
+.bottomSection {
+  padding: 1rem 1.25rem;
+  border-top: var(--border-separator-light);
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--brand-amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--sidebar-bg);
+}
+
+.userInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.userName {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--sidebar-user-name);
+}
+
+.userRole {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--sidebar-role-text);
+}
+
+.logoutBtn {
+  background: transparent;
+  color: var(--sidebar-nav-muted);
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  transition:
+    color var(--transition-speed) ease,
+    background-color var(--transition-speed) ease;
+}
+
+.logoutBtn:hover {
+  color: var(--gold-text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.topSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.menuToggle,
+.sidebarBackdrop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menuToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: max(10px, env(safe-area-inset-top, 0px));
+    left: max(10px, env(safe-area-inset-left, 0px));
+    z-index: 1100;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--sidebar-hover);
+    color: var(--gold-text);
+    border: var(--border-thin);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: filter var(--transition-speed) ease;
+  }
+
+  .menuToggle:hover {
+    filter: brightness(1.08);
+  }
+
+  .sidebarBackdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1040;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    background: rgba(44, 26, 14, 0.45);
+    backdrop-filter: blur(2px);
+  }
+
+  .sidebar {
+    width: min(280px, 88vw);
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    pointer-events: none;
+    box-shadow: none;
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+    pointer-events: auto;
+    box-shadow: 8px 0 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .logo {
+    margin-bottom: 1.5rem;
+  }
+}

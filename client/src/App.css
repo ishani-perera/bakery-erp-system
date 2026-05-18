@@ -1,0 +1,78 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-app);
+}
+
+.main-container {
+  flex: 1;
+  margin-left: 280px;
+  padding: 20px 24px 0;
+  transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  border: var(--border-app-outer);
+  border-left: none;
+  border-radius: 0 16px 16px 0;
+  background-color: var(--page-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+}
+
+.main-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 280px;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(rgba(250, 245, 239, 0.85), rgba(250, 245, 239, 0.85)), url('/bakery_bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 1024px) {
+  .main-container {
+    margin-left: 280px;
+    padding: 20px 24px 0;
+  }
+  .main-container::before {
+    left: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    margin-left: 0;
+    padding: 16px 16px 0;
+    padding-top: max(16px, calc(12px + 48px + env(safe-area-inset-top, 0px)));
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    border: none;
+    border-radius: 0;
+  }
+  .main-container::before {
+    left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: 12px 12px 0;
+    padding-top: max(12px, calc(8px + 48px + env(safe-area-inset-top, 0px)));
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
+}

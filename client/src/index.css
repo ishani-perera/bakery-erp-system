@@ -1,0 +1,439 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  /* Layout tokens (used by App + Sidebar) */
+  --sidebar-bg: #2C1A0E;
+  --sidebar-text: #F5E6C8;
+  --bg-app: #F5EFE6;
+
+  /* Core Brand Colours */
+  --sidebar-dark: #2C1A0E;
+  --sidebar-hover: #3D2518;
+  --brand-amber: #C8953A;
+  --brand-orange: #E68D1D;
+  --gold-text: #F5C878;
+  --cream-text: #F5E6C8;
+
+  /* Surface & Background Colours */
+  --card-surface: #FAF7F2;
+  --page-bg: #F5EFE6;
+  --icon-bg: #EDE0CC;
+  --border-default: #DDD0BB;
+  --app-outer-border: #D9CCBC;
+
+  /* Text Colours */
+  --text-primary: #2C1A0E;
+  --text-table: #3A2A1A;
+  --text-muted: #9A8470;
+  --text-hint: #B09A82;
+  --text-sidebar-sub: #6B5A48;
+
+  /* Status & Semantic Colours */
+  --status-pending-bg: #FDF0DB;
+  --status-pending-text: #7A4A10;
+  --status-pending-border: #E8C87A;
+
+  --status-success-bg: #E8F5E0;
+  --status-success-text: #2A5A1A;
+  --status-success-border: #9ACA6A;
+
+  --status-danger-bg: #FDE8E8;
+  --status-danger-text: #7A1A1A;
+  --status-danger-border: #E8A0A0;
+
+  --status-info-bg: #E6F1FB;
+  --status-info-text: #185FA5;
+
+  --progress-revenue: #5A8A3A;
+  --danger-solid: #C04A3A;
+
+  /* KPI / accents */
+  --kpi-blue-stripe: #378add;
+
+  /* Sidebar typography (reference §6.1) */
+  --sidebar-section-text: #4a3a2a;
+  --sidebar-nav-muted: #8a7a6a;
+  --sidebar-nav-hover-text: #c4a882;
+  --sidebar-user-name: #c4a882;
+  --sidebar-role-text: #5a4a3a;
+
+  /* Form labels */
+  --text-form-label: #7a6a5a;
+
+  /* Common border thickness */
+  --border-thin: 0.5px solid var(--border-default);
+  --border-app-outer: 0.5px solid var(--app-outer-border);
+  --border-separator-light: 0.5px solid rgba(255, 255, 255, 0.07);
+
+  /* Hover & Motion */
+  --transition-speed: 0.15s;
+}
+
+input,
+textarea,
+select {
+  transition:
+    border-color var(--transition-speed) ease,
+    background-color var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--brand-amber);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .brand-font {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Animations */
+@keyframes growUp { 
+  from { transform: scaleY(0); opacity: 0; } 
+  to { transform: scaleY(1); opacity: 1; } 
+}
+
+@keyframes fillIn { 
+  from { width: 0; } 
+  to { width: var(--w); } 
+}
+
+@keyframes fadeIn { 
+  from { opacity: 0; transform: translateY(6px); } 
+  to { opacity: 1; transform: none; } 
+}
+
+.page.on, .page-entry {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.table-responsive {
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--icon-bg);
+  border-radius: 10px;
+}
+
+/* Button Reset */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-speed) ease;
+}
+
+/* Typography Classes */
+.page-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.page-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+/* Custom Table */
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.custom-table th {
+  padding: 1rem;
+  text-align: left;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: var(--border-thin);
+}
+
+.custom-table td {
+  padding: 1.25rem 1rem;
+  font-size: 12px;
+  color: var(--text-table);
+  background: var(--card-surface);
+  border-bottom: var(--border-thin);
+}
+
+/* Global Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 26, 14, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: modal-fadeIn 0.2s ease-out;
+}
+
+.modal-container {
+  background: var(--card-surface);
+  padding: 2.5rem;
+  border-radius: 18px; /* Based on login card radius / form panels */
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  border: var(--border-thin);
+  animation: modal-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-container h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.modal-container p {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.modal-btn-cancel {
+  background: var(--icon-bg);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border: var(--border-thin);
+}
+
+.modal-btn-cancel:hover {
+  background: var(--border-default);
+  border-color: var(--brand-amber);
+}
+
+.modal-btn-confirm {
+  background: var(--danger-solid);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border: var(--border-thin);
+}
+
+.modal-btn-confirm:hover {
+  background: var(--status-danger-bg);
+  color: var(--danger-solid);
+  border-color: var(--brand-amber);
+}
+
+/* Global Toast Notification */
+.toast-container {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background: var(--card-surface);
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 9999;
+  font-size: 11px;
+  font-weight: 500;
+  animation: toast-slideIn 0.3s ease-out;
+  border: var(--border-thin);
+}
+
+.toast-success { color: var(--status-success-text); border: 0.5px solid var(--status-success-border); background: var(--status-success-bg); }
+.toast-error { color: var(--status-danger-text); border: 0.5px solid var(--status-danger-border); background: var(--status-danger-bg); }
+.toast-info { color: var(--status-info-text); border: 0.5px solid var(--status-info-bg); background: var(--status-info-bg); }
+
+@keyframes modal-fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-pop {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes toast-slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .modal-container {
+    width: calc(100vw - 2rem);
+    max-width: none;
+    padding: 1.5rem;
+    margin: 0 1rem;
+    max-height: min(90vh, 600px);
+    overflow-y: auto;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .modal-btn-cancel,
+  .modal-btn-confirm {
+    width: 100%;
+  }
+
+  .toast-container {
+    top: auto;
+    left: max(0.75rem, env(safe-area-inset-left));
+    right: max(0.75rem, env(safe-area-inset-right));
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
+    max-width: none;
+    font-size: 12px;
+    padding: 0.75rem 1rem;
+  }
+}
+/* ═══════════════════════════════════════════
+   ENHANCED HOVER EFFECTS & ANIMATIONS (added)
+   ═══════════════════════════════════════════ */
+
+/* Smooth card lift — applies to any .card-hover class */
+.card-hover {
+  transition:
+    transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(44, 26, 14, 0.12);
+  border-color: var(--brand-amber);
+}
+
+/* Button pulse on hover */
+@keyframes btnPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(200, 149, 58, 0.4); }
+  70%  { box-shadow: 0 0 0 8px rgba(200, 149, 58, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(200, 149, 58, 0); }
+}
+
+/* Ripple-like glow for primary action buttons */
+.btn-primary-glow:hover {
+  animation: btnPulse 0.6s ease-out;
+}
+
+/* Skeleton shimmer for loading states */
+@keyframes skeletonShimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--icon-bg) 25%,
+    var(--border-default) 50%,
+    var(--icon-bg) 75%
+  );
+  background-size: 800px 100%;
+  animation: skeletonShimmer 1.5s infinite linear;
+  border-radius: 8px;
+}
+
+/* Slide-in from left for sidebar links */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Bounce-in for modals/toasts */
+@keyframes bounceIn {
+  0%   { transform: scale(0.85); opacity: 0; }
+  60%  { transform: scale(1.04); opacity: 1; }
+  80%  { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+.bounce-in {
+  animation: bounceIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Row hover highlight for tables */
+.custom-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+.custom-table tbody tr:hover td {
+  background: var(--icon-bg);
+}
+
+/* Spin animation for refresh/loading icons */
+@keyframes spinOnce {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.spin-on-hover:hover svg {
+  animation: spinOnce 0.5s ease-in-out;
+}
+
+/* Status badge pop on hover */
+.status-badge {
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+.status-badge:hover {
+  transform: scale(1.06);
+  filter: brightness(1.05);
+}
+
+/* Glow border focus ring */
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 3px rgba(200, 149, 58, 0.18);
+}
+
+/* Page transition — stagger children with nth-child delay */
+.page-entry > * {
+  animation: fadeIn 0.3s ease forwards;
+  opacity: 0;
+}
+.page-entry > *:nth-child(1) { animation-delay: 0.04s; }
+.page-entry > *:nth-child(2) { animation-delay: 0.08s; }
+.page-entry > *:nth-child(3) { animation-delay: 0.12s; }
+.page-entry > *:nth-child(4) { animation-delay: 0.16s; }
+.page-entry > *:nth-child(5) { animation-delay: 0.20s; }
+.page-entry > *:nth-child(6) { animation-delay: 0.24s; }

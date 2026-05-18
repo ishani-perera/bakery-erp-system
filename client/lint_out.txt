@@ -1,0 +1,193 @@
+﻿
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\public\client.d.ts
+  1:1  error  Do not use a triple slash reference for ./types/importMeta.d.ts, use `import` style instead  @typescript-eslint/triple-slash-reference
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Dashboard.tsx
+  43:5  error  Error: Cannot access variable before it is declared
+
+`fetchDashboardData` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Dashboard.tsx:43:5
+  41 |
+  42 |   useEffect(() => {
+> 43 |     fetchDashboardData();
+     |     ^^^^^^^^^^^^^^^^^^ `fetchDashboardData` accessed before it is declared
+  44 |   }, []);
+  45 |
+  46 |   const fetchDashboardData = async () => {
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Dashboard.tsx:46:3
+  44 |   }, []);
+  45 |
+> 46 |   const fetchDashboardData = async () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 47 |     try {
+     | ^^^^^^^^^
+> 48 |       setLoading(true);
+     ΓÇª
+     | ^^^^^^^^^
+> 64 |     }
+     | ^^^^^^^^^
+> 65 |   };
+     | ^^^^^ `fetchDashboardData` is declared here
+  66 |
+  67 |   const formatCurrency = (value: number) => {
+  68 |     return `Rs. ${(value || 0).toLocaleString()}`;  react-hooks/immutability
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Inventory.tsx
+   35:5   error  Error: Cannot access variable before it is declared
+
+`fetchInventory` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Inventory.tsx:35:5
+  33 |
+  34 |   useEffect(() => {
+> 35 |     fetchInventory();
+     |     ^^^^^^^^^^^^^^ `fetchInventory` accessed before it is declared
+  36 |   }, []);
+  37 |
+  38 |   const fetchInventory = async () => {
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Inventory.tsx:38:3
+  36 |   }, []);
+  37 |
+> 38 |   const fetchInventory = async () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 39 |     try {
+     | ^^^^^^^^^
+> 40 |       setLoading(true);
+     ΓÇª
+     | ^^^^^^^^^
+> 56 |     }
+     | ^^^^^^^^^
+> 57 |   };
+     | ^^^^^ `fetchInventory` is declared here
+  58 |
+  59 |   const handleUpdateChange = (id: number, val: string) => {
+  60 |     setUpdateValues({ ...updateValues, [id]: val });  react-hooks/immutability
+   70:14  error  'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+   86:14  error  'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+  110:14  error  'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Login.tsx
+  37:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Orders.tsx
+   55:5   error  Error: Cannot access variable before it is declared
+
+`fetchOrders` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Orders.tsx:55:5
+  53 |
+  54 |   useEffect(() => {
+> 55 |     fetchOrders();
+     |     ^^^^^^^^^^^ `fetchOrders` accessed before it is declared
+  56 |     fetchProducts();
+  57 |   }, []);
+  58 |
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Orders.tsx:64:3
+  62 |   };
+  63 |
+> 64 |   const fetchOrders = async () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 65 |     try {
+     | ^^^^^^^^^
+> 66 |       const response = await ordersAPI.getAll();
+     | ^^^^^^^^^
+> 67 |       setOrders(response.data);
+     | ^^^^^^^^^
+> 68 |     } catch (err) {
+     | ^^^^^^^^^
+> 69 |       console.error('Failed to fetch orders', err);
+     | ^^^^^^^^^
+> 70 |     }
+     | ^^^^^^^^^
+> 71 |   };
+     | ^^^^^ `fetchOrders` is declared here
+  72 |
+  73 |   const fetchProducts = async () => {
+  74 |     try {                                                                                                                                     react-hooks/immutability
+   56:5   error  Error: Cannot access variable before it is declared
+
+`fetchProducts` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Orders.tsx:56:5
+  54 |   useEffect(() => {
+  55 |     fetchOrders();
+> 56 |     fetchProducts();
+     |     ^^^^^^^^^^^^^ `fetchProducts` accessed before it is declared
+  57 |   }, []);
+  58 |
+  59 |   const showToast = (message: string, type: 'success' | 'error' = 'success') => {
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Orders.tsx:73:3
+  71 |   };
+  72 |
+> 73 |   const fetchProducts = async () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 74 |     try {
+     | ^^^^^^^^^
+> 75 |       const response = await productsAPI.getAll();
+     | ^^^^^^^^^
+> 76 |       setProducts(response.data);
+     | ^^^^^^^^^
+> 77 |     } catch (err) {
+     | ^^^^^^^^^
+> 78 |       console.error('Failed to fetch products', err);
+     | ^^^^^^^^^
+> 79 |     }
+     | ^^^^^^^^^
+> 80 |   };
+     | ^^^^^ `fetchProducts` is declared here
+  81 |
+  82 |   const handleStatusChange = async (id: number, newStatus: any) => {
+  83 |     try {  react-hooks/immutability
+   82:60  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-explicit-any
+  138:69  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-explicit-any
+  203:19  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-explicit-any
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Products.tsx
+   30:5   error  Error: Cannot access variable before it is declared
+
+`fetchProducts` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Products.tsx:30:5
+  28 |
+  29 |   useEffect(() => {
+> 30 |     fetchProducts();
+     |     ^^^^^^^^^^^^^ `fetchProducts` accessed before it is declared
+  31 |   }, []);
+  32 |
+  33 |   const fetchProducts = async () => {
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\pages\Products.tsx:33:3
+  31 |   }, []);
+  32 |
+> 33 |   const fetchProducts = async () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 34 |     try {
+     | ^^^^^^^^^
+> 35 |       setLoading(true);
+     ΓÇª
+     | ^^^^^^^^^
+> 44 |     }
+     | ^^^^^^^^^
+> 45 |   };
+     | ^^^^^ `fetchProducts` is declared here
+  46 |
+  47 |   const handleSubmit = async (e: React.FormEvent) => {
+  48 |     e.preventDefault();  react-hooks/immutability
+   68:14  error  'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  101:14  error  'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+
+C:\Users\ishani perera\Desktop\bakery-erp-system\client\src\services\api.ts
+  31:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  32:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  37:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  38:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  46:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  53:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 21 problems (21 errors, 0 warnings)
+
