@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
 import Orders from "./pages/Orders";
@@ -6,6 +7,7 @@ import Inventory from "./pages/Inventory";
 import Login from "./pages/Login";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
+import { authAPI } from "./services/api";
 import "./App.css";
 
 // අලුත් Pages 4 Import කරගැනීම
@@ -36,6 +38,38 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 function App() {
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  useEffect(() => {
+    // Auto-login with default admin credentials if not already authenticated
+    const initializeAuth = async () => {
+      const existingToken = localStorage.getItem("authToken");
+      if (!existingToken) {
+        try {
+          const response = await authAPI.login({
+            username: "admin",
+            password: "password123",
+          });
+          const { token, user } = response.data;
+          localStorage.setItem("authToken", token);
+          localStorage.setItem("user", JSON.stringify(user));
+        } catch (error) {
+          console.error("Auto-login failed:", error);
+        }
+      }
+      setIsInitialized(true);
+    };
+
+    initializeAuth();
+  }, []);
+
+  if (!isInitialized) {
+    return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>Initializing...</div>;
+  }
+  if (!isInitialized) {
+    return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>Initializing...</div>;
+  }
+
   return (
     <BrowserRouter>
       <Routes>
