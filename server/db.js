@@ -127,8 +127,8 @@ const initDb = async () => {
       for (let i = 0; i < 5; i++) {
         const total = products[0].price * 2;
         const res = await run(
-          "INSERT INTO orders (customer, phone, notes, total, status, created_at) VALUES (?, ?, ?, ?, ?, datetime('now', ?))",
-          [customers[i % customers.length], '0771234567', 'Regular delivery', total, 'completed', `-${i} days`]
+          "INSERT INTO orders (customer, phone, notes, total, status, created_at) VALUES (?, ?, ?, ?, ?, datetime('now', '-' || ? || ' days'))",
+          [customers[i % customers.length], '0771234567', 'Regular delivery', total, 'completed', i]
         );
         const orderId = res.id;
         await run(
