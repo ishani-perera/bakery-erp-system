@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const db = require('./db');
+const { initDb, query, run } = require('./db');
 require('dotenv').config();
 
 const app = express();
@@ -11,6 +11,20 @@ const app = express();
 // --- MIDDLEWARE ---
 app.use(cors());
 app.use(express.json());
+
+// Initialize database
+const db = { query, run };
+
+// Start server with database initialization
+const startServer = async () => {
+  try {
+    await initDb();
+    console.log('✅ Database initialized successfully');
+  } catch (err) {
+    console.error('❌ Database initialization failed:', err);
+    process.exit(1);
+  }
+};
 
 const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || 'bakery_secret_key_2024';
@@ -312,7 +326,12 @@ app.delete('/api/inventory/:id', authenticateToken, async (req, res) => {
 });
 
 // --- START SERVER ---
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📂 Database: bakery.db (No MySQL needed!)`);
+startServer().then(() => {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`📂 Database: bakery.db (sql.js - Pure JavaScript SQLite)`);
+  });
+}).catch(err => {
+  console.error('Failed to start server:', err);
+  process.exit(1);
 }); 
