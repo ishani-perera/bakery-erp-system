@@ -2,13 +2,14 @@ services:
   - type: web
     name: bakery-erp-backend
     env: node
+    buildFilter:
+      paths:
+        - server/**
     plan: free
     baseDir: server
-    buildCommand: npm install --build-from-source
-    startCommand: npm start
+    buildCommand: npm ci --build-from-source
+    startCommand: node index.js
     envVars:
-      - key: NODE_VERSION
-        value: 20.11.0
       - key: NODE_ENV
         value: production
       - key: PORT
