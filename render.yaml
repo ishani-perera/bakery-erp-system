@@ -1,10 +1,13 @@
 services:
   - type: web
-    name: bakery-erp-system
+    name: bakery-erp-backend
     env: node
     plan: free
-    buildCommand: cd server && npm install && cd ../client && npm install && cd ..
-    startCommand: cd server && npm start
+    baseDir: server
+    buildCommand: npm install
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
+      - key: PORT
+        value: 5000
