@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Tracking Guide - Bakery ERP System</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-book"></i> Bakery ERP Tutorials
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="bi bi-box"></i> Inventory Guide</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-lg-3 d-lg-block">
+                <div class="sidebar">
+                    <div class="sidebar-header">
+                        <h5><i class="bi bi-list"></i> Navigation</h5>
+                    </div>
+                    <ul class="sidebar-nav">
+                        <li><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+                        <li><a href="login-guide.html"><i class="bi bi-key"></i> Login Guide</a></li>
+                        <li><a href="product-guide.html"><i class="bi bi-basket"></i> Product Management</a></li>
+                        <li><a href="order-guide.html"><i class="bi bi-cart"></i> Order Management</a></li>
+                        <li><a href="inventory-guide.html" class="active"><i class="bi bi-box"></i> Inventory Tracking</a></li>
+                        <li><a href="reports-guide.html"><i class="bi bi-bar-chart"></i> Reports & Analytics</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-lg-9">
+                <div class="p-4">
+                    <!-- Breadcrumb -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+                            <li class="breadcrumb-item active">Inventory Tracking</li>
+                        </ol>
+                    </nav>
+
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <h1><i class="bi bi-boxes"></i> Inventory Tracking Guide</h1>
+                        <p>Manage stock levels, track supplies, and prevent stockouts</p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="alert alert-info mb-4">
+                        <h5><i class="bi bi-bookmark"></i> Quick Navigation</h5>
+                        <a href="#inventory-overview" class="btn btn-sm btn-outline-primary me-2">Overview</a>
+                        <a href="#update-stock" class="btn btn-sm btn-outline-primary me-2">Update Stock</a>
+                        <a href="#low-stock" class="btn btn-sm btn-outline-primary me-2">Low Stock Alerts</a>
+                        <a href="#stock-adjustments" class="btn btn-sm btn-outline-primary">Adjustments</a>
+                    </div>
+
+                    <!-- Introduction -->
+                    <section id="introduction">
+                        <div class="alert alert-warning">
+                            <h5><i class="bi bi-exclamation-triangle"></i> Important</h5>
+                            <p>Accurate inventory tracking is critical for avoiding stockouts and overstock situations. Update inventory regularly to maintain accurate business records.</p>
+                        </div>
+                    </section>
+
+                    <!-- Inventory Overview -->
+                    <section id="inventory-overview" class="mt-custom">
+                        <h2><i class="bi bi-eye"></i> Understanding Your Inventory</h2>
+
+                        <h4 class="mt-3">Inventory Dashboard:</h4>
+                        <div class="card">
+                            <div class="card-body">
+                                <p>The Inventory Dashboard shows:</p>
+                                <ul>
+                                    <li><strong>Total Stock Value:</strong> Total value of all inventory</li>
+                                    <li><strong>Low Stock Items:</strong> Products below reorder level</li>
+                                    <li><strong>Out of Stock:</strong> Items with zero quantity</li>
+                                    <li><strong>Recent Movements:</strong> Latest inventory changes</li>
+                                    <li><strong>Stock Turn Rate:</strong> How quickly items sell</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Key Inventory Metrics:</h4>
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="bi bi-boxes"></i> Current Stock
+                                    </div>
+                                    <div class="card-body">
+                                        <p>The quantity you have on hand right now</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="bi bi-graph-down"></i> Reorder Level
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Minimum quantity before triggering alert</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="bi bi-cart"></i> Reserved Stock
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Items allocated to pending orders</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="bi bi-check-circle"></i> Available Stock
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Stock available for new orders (Current - Reserved)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Updating Stock -->
+                    <section id="update-stock" class="mt-custom">
+                        <h2><i class="bi bi-pencil-square"></i> Updating Stock Levels</h2>
+
+                        <h4>Manual Stock Update:</h4>
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Go to Inventory</h5>
+                                <p>Click Inventory in the main menu.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Find Product</h5>
+                                <p>Search or browse to find the product you want to update.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Click Edit Stock</h5>
+                                <p>Click the edit icon or "Update Stock" button.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h5>Enter New Quantity</h5>
+                                <p>Enter the new stock quantity or adjust by amount.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h5>Add Note (Optional)</h5>
+                                <p>Add reason for adjustment (e.g., "New batch received", "Damaged items removed")</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">6</div>
+                            <div class="step-content">
+                                <h5>Save</h5>
+                                <p>Click "Save" to update inventory.</p>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success mt-3">
+                            <h5><i class="bi bi-check-circle"></i> Pro Tip</h5>
+                            <p>Always add a note when adjusting stock so you have a record of what happened and when.</p>
+                        </div>
+                    </section>
+
+                    <!-- Low Stock Alerts -->
+                    <section id="low-stock" class="mt-custom">
+                        <h2><i class="bi bi-exclamation-circle"></i> Low Stock Alerts</h2>
+
+                        <p>The system automatically alerts you when items run low on stock.</p>
+
+                        <h4 class="mt-3">Setting Reorder Levels:</h4>
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Open Product</h5>
+                                <p>Go to Products and click on the product.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Edit Reorder Level</h5>
+                                <p>Find the "Reorder Level" field and enter the minimum quantity.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Save</h5>
+                                <p>Click Save. You'll now receive alerts when stock falls below this level.</p>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Understanding Alerts:</h4>
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Alert Type</th>
+                                            <th>Condition</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="badge bg-warning">LOW STOCK</span></td>
+                                            <td>Stock below reorder level</td>
+                                            <td>Place reorder immediately</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-danger">OUT OF STOCK</span></td>
+                                            <td>Stock at zero</td>
+                                            <td>Emergency reorder needed</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-info">OVERSTOCK</span></td>
+                                            <td>Stock significantly above normal</td>
+                                            <td>Consider promotions or adjustments</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Alert Notifications:</h4>
+                        <div class="alert alert-info">
+                            <p>You receive alerts through:</p>
+                            <ul>
+                                <li><strong>Dashboard:</strong> See alerts on your home screen</li>
+                                <li><strong>Email:</strong> Daily low stock report</li>
+                                <li><strong>Bell Icon:</strong> Real-time notifications</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Stock Adjustments -->
+                    <section id="stock-adjustments" class="mt-custom">
+                        <h2><i class="bi bi-arrow-up-down"></i> Stock Adjustments</h2>
+
+                        <p>Adjust inventory for various reasons like damage, theft, or discrepancies.</p>
+
+                        <h4 class="mt-3">Common Adjustment Reasons:</h4>
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Reason</th>
+                                            <th>Action</th>
+                                            <th>Example</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Damaged Items</td>
+                                            <td>Reduce stock</td>
+                                            <td>Bread got moldy, remove 5 units</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Shrinkage/Loss</td>
+                                            <td>Reduce stock</td>
+                                            <td>Missing inventory, adjust -3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>New Batch Received</td>
+                                            <td>Add to stock</td>
+                                            <td>New delivery, add +50 units</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Inventory Correction</td>
+                                            <td>Manual adjustment</td>
+                                            <td>Recount shows 25 not 30, adjust -5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Transfer In/Out</td>
+                                            <td>Adjust by location</td>
+                                            <td>Move between locations</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Making Adjustments:</h4>
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <p>Go to Inventory → Adjustments</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <p>Click "New Adjustment"</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <p>Select product and adjustment type</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <p>Enter quantity and reason</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <p>Click "Save" to record adjustment</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Stock Count -->
+                    <section id="stock-count" class="mt-custom">
+                        <h2><i class="bi bi-checklist"></i> Physical Stock Count</h2>
+
+                        <p>Regularly count physical inventory and compare with system records.</p>
+
+                        <h4 class="mt-3">Conducting a Count:</h4>
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="bi bi-list-check"></i> Stock Count Process
+                            </div>
+                            <div class="card-body">
+                                <ol>
+                                    <li>Go to Inventory → Stock Count</li>
+                                    <li>Click "Start New Count"</li>
+                                    <li>Select products to count (all or specific)</li>
+                                    <li>Print count sheet or use mobile app</li>
+                                    <li>Count items physically</li>
+                                    <li>Enter actual quantities in system</li>
+                                    <li>System shows discrepancies</li>
+                                    <li>Review and approve adjustments</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Frequency Recommendations:</h4>
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="bi bi-calendar"></i> Cyclic Count
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Count portion of inventory weekly or bi-weekly</p>
+                                        <p>Advantages: Easier to manage, less disruption</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="bi bi-hourglass"></i> Full Count
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Count all inventory monthly or quarterly</p>
+                                        <p>Advantages: Complete picture, comprehensive</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Stock History -->
+                    <section id="stock-history" class="mt-custom">
+                        <h2><i class="bi bi-clock-history"></i> Stock History & Reports</h2>
+
+                        <h4>Viewing Stock Movements:</h4>
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Go to Inventory</h5>
+                                <p>Navigate to Inventory section</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Click on Product</h5>
+                                <p>Select the product to view history</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>View History Tab</h5>
+                                <p>See complete history of all changes, including:</p>
+                                <ul>
+                                    <li>Date and time of change</li>
+                                    <li>User who made change</li>
+                                    <li>Type of change (sale, return, adjustment)</li>
+                                    <li>Quantity changed</li>
+                                    <li>Notes/reason</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Best Practices -->
+                    <section id="best-practices" class="mt-custom">
+                        <h2><i class="bi bi-star"></i> Best Practices</h2>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header bg-success text-white">
+                                        <i class="bi bi-check-circle"></i> DO's
+                                    </div>
+                                    <div class="card-body">
+                                        <ul>
+                                            <li>✓ Update inventory daily</li>
+                                            <li>✓ Set appropriate reorder levels</li>
+                                            <li>✓ Record all adjustments with notes</li>
+                                            <li>✓ Perform regular stock counts</li>
+                                            <li>✓ Review slow-moving items</li>
+                                            <li>✓ Track expiration dates</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header bg-danger text-white">
+                                        <i class="bi bi-x-circle"></i> DON'Ts
+                                    </div>
+                                    <div class="card-body">
+                                        <ul>
+                                            <li>✗ Forget to update inventory</li>
+                                            <li>✗ Ignore low stock alerts</li>
+                                            <li>✗ Make adjustments without notes</li>
+                                            <li>✗ Skip physical counts</li>
+                                            <li>✗ Keep obsolete items</li>
+                                            <li>✗ Store expired products</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- FAQ -->
+                    <section id="faq" class="mt-custom">
+                        <h2><i class="bi bi-question-circle"></i> FAQ</h2>
+
+                        <div class="accordion" id="invAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#inv1">
+                                        Why are my system quantities different from physical count?
+                                    </button>
+                                </h2>
+                                <div id="inv1" class="accordion-collapse collapse show" data-bs-parent="#invAccordion">
+                                    <div class="accordion-body">
+                                        Common reasons: Unrecorded sales, damaged items, theft, data entry errors. Update to physical count and investigate the cause.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inv2">
+                                        How do I handle expired products?
+                                    </button>
+                                </h2>
+                                <div id="inv2" class="accordion-collapse collapse" data-bs-parent="#invAccordion">
+                                    <div class="accordion-body">
+                                        Remove from stock with adjustment reason "Expired". Mark products with expiration dates and review regularly.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inv3">
+                                        Can I undo an inventory adjustment?
+                                    </button>
+                                </h2>
+                                <div id="inv3" class="accordion-collapse collapse" data-bs-parent="#invAccordion">
+                                    <div class="accordion-body">
+                                        Yes, you can create a reverse adjustment. Or contact support to reverse within 24 hours. Always add a note explaining why.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Navigation Buttons -->
+                    <div class="d-flex justify-content-between align-items-center mt-custom">
+                        <a href="order-guide.html" class="btn btn-outline-primary">
+                            <i class="bi bi-arrow-left"></i> Previous: Orders
+                        </a>
+                        <a href="reports-guide.html" class="btn btn-primary">
+                            Next: Reports <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><i class="bi bi-book"></i> Bakery ERP</h5>
+                    <p>Professional management system for bakery businesses.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="login-guide.html">Login Guide</a></li>
+                        <li><a href="inventory-guide.html">Inventory Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Report a Bug</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bakery ERP System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

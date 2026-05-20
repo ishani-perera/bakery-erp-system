@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management Guide - Bakery ERP System</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-book"></i> Bakery ERP Tutorials
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="bi bi-cart"></i> Order Guide</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-lg-3 d-lg-block">
+                <div class="sidebar">
+                    <div class="sidebar-header">
+                        <h5><i class="bi bi-list"></i> Navigation</h5>
+                    </div>
+                    <ul class="sidebar-nav">
+                        <li><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+                        <li><a href="login-guide.html"><i class="bi bi-key"></i> Login Guide</a></li>
+                        <li><a href="product-guide.html"><i class="bi bi-basket"></i> Product Management</a></li>
+                        <li><a href="order-guide.html" class="active"><i class="bi bi-cart"></i> Order Management</a></li>
+                        <li><a href="inventory-guide.html"><i class="bi bi-box"></i> Inventory Tracking</a></li>
+                        <li><a href="reports-guide.html"><i class="bi bi-bar-chart"></i> Reports & Analytics</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-lg-9">
+                <div class="p-4">
+                    <!-- Breadcrumb -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+                            <li class="breadcrumb-item active">Order Management</li>
+                        </ol>
+                    </nav>
+
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <h1><i class="bi bi-cart-check"></i> Order Management Guide</h1>
+                        <p>Create, track, and manage customer orders efficiently</p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="alert alert-info mb-4">
+                        <h5><i class="bi bi-bookmark"></i> Quick Navigation</h5>
+                        <a href="#create-order" class="btn btn-sm btn-outline-primary me-2">Create Order</a>
+                        <a href="#track-order" class="btn btn-sm btn-outline-primary me-2">Track Order</a>
+                        <a href="#order-status" class="btn btn-sm btn-outline-primary me-2">Order Status</a>
+                        <a href="#payments" class="btn btn-sm btn-outline-primary">Payments</a>
+                    </div>
+
+                    <!-- Introduction -->
+                    <section id="introduction">
+                        <div class="alert alert-warning">
+                            <h5><i class="bi bi-exclamation-triangle"></i> Important</h5>
+                            <p>Efficient order management is crucial for customer satisfaction. Keep orders organized and update statuses regularly.</p>
+                        </div>
+                    </section>
+
+                    <!-- Creating Orders -->
+                    <section id="create-order" class="mt-custom">
+                        <h2><i class="bi bi-plus-circle"></i> Creating a New Order</h2>
+
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Go to Orders</h4>
+                                <p>Click on the Orders menu in the main navigation.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Click "Create New Order"</h4>
+                                <p>Click the green "New Order" button in the top right corner.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Select or Create Customer</h4>
+                                <ul>
+                                    <li>Select an existing customer, or</li>
+                                    <li>Click "Add New Customer" to create one</li>
+                                    <li>Fill in customer details: Name, Email, Phone, Address</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Add Products to Order</h4>
+                                <ul>
+                                    <li>Click "Add Item"</li>
+                                    <li>Search and select products from your catalog</li>
+                                    <li>Enter quantity needed</li>
+                                    <li>Price is automatically calculated</li>
+                                    <li>Repeat for additional products</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>Set Order Details</h4>
+                                <ul>
+                                    <li><strong>Order Date:</strong> When order is placed (defaults to today)</li>
+                                    <li><strong>Delivery Date:</strong> When customer wants it</li>
+                                    <li><strong>Notes:</strong> Special instructions or requirements</li>
+                                    <li><strong>Discount:</strong> Apply if applicable</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">6</div>
+                            <div class="step-content">
+                                <h4>Select Payment Method</h4>
+                                <ul>
+                                    <li>Cash</li>
+                                    <li>Credit Card</li>
+                                    <li>Check</li>
+                                    <li>Bank Transfer</li>
+                                    <li>Other</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">7</div>
+                            <div class="step-content">
+                                <h4>Review and Save</h4>
+                                <p>Review the order summary and click "Create Order" to save.</p>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success mt-3">
+                            <h5><i class="bi bi-check-circle"></i> Pro Tip</h5>
+                            <p>Use the "Save as Draft" option if you need to come back and complete the order later.</p>
+                        </div>
+                    </section>
+
+                    <!-- Order Status -->
+                    <section id="order-status" class="mt-custom">
+                        <h2><i class="bi bi-list-check"></i> Order Status Guide</h2>
+
+                        <p>Understanding order statuses helps you manage your workflow effectively.</p>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="bi bi-info-circle"></i> Order Status Flow
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Status</th>
+                                            <th>Description</th>
+                                            <th>Action Required</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="badge bg-secondary">Draft</span></td>
+                                            <td>Order saved but not confirmed</td>
+                                            <td>Complete and confirm order</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-primary">Pending</span></td>
+                                            <td>Order confirmed, awaiting processing</td>
+                                            <td>Prepare order items</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-info">Processing</span></td>
+                                            <td>Order is being prepared</td>
+                                            <td>Continue preparation</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-warning">Ready</span></td>
+                                            <td>Order is ready for pickup/delivery</td>
+                                            <td>Arrange pickup or delivery</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-success">Shipped</span></td>
+                                            <td>Order is out for delivery</td>
+                                            <td>Track and confirm delivery</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-success">Delivered</span></td>
+                                            <td>Order successfully delivered</td>
+                                            <td>Confirm receipt with customer</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-danger">Cancelled</span></td>
+                                            <td>Order cancelled by customer or system</td>
+                                            <td>Process refund if needed</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Updating Order Status:</h4>
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <p>Open the order you want to update</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <p>Click on the status dropdown at the top of the order</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <p>Select the new status from the list</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <p>Add notes if needed and click "Update Status"</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Tracking Orders -->
+                    <section id="track-order" class="mt-custom">
+                        <h2><i class="bi bi-geo-alt"></i> Tracking Orders</h2>
+
+                        <h4>Finding a Specific Order:</h4>
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Go to Orders List</h5>
+                                <p>Navigate to Orders in the main menu.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Use Search or Filter</h5>
+                                <ul>
+                                    <li>Search by Order ID</li>
+                                    <li>Search by Customer Name</li>
+                                    <li>Filter by status, date range, or payment status</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Click to View Details</h5>
+                                <p>Click on an order to see full details, items, timeline, and notes.</p>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Order Timeline:</h4>
+                        <div class="card">
+                            <div class="card-body">
+                                <p>Each order shows a complete timeline of all actions and status changes. You can:</p>
+                                <ul>
+                                    <li>See when status changed</li>
+                                    <li>View who made changes</li>
+                                    <li>Read associated notes</li>
+                                    <li>Track all communications</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Payments -->
+                    <section id="payments" class="mt-custom">
+                        <h2><i class="bi bi-credit-card"></i> Payment Management</h2>
+
+                        <h4 class="mt-3">Recording Payments:</h4>
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <p>Open the order</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <p>Click "Record Payment" in the payment section</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <p>Enter payment details:</p>
+                                <ul>
+                                    <li>Amount paid</li>
+                                    <li>Payment method</li>
+                                    <li>Transaction reference/check number</li>
+                                    <li>Payment date</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <p>Click "Save Payment"</p>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Payment Status:</h4>
+                        <div class="card">
+                            <div class="card-body">
+                                <ul>
+                                    <li><strong>Not Paid:</strong> Order hasn't been paid yet</li>
+                                    <li><strong>Partially Paid:</strong> Customer paid part of the order</li>
+                                    <li><strong>Paid:</strong> Order has been fully paid</li>
+                                    <li><strong>Refunded:</strong> Payment was refunded to customer</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-warning mt-3">
+                            <h5><i class="bi bi-exclamation-triangle"></i> Important</h5>
+                            <p>Always record payments immediately to keep financial records accurate and up-to-date.</p>
+                        </div>
+                    </section>
+
+                    <!-- Advanced Features -->
+                    <section id="advanced" class="mt-custom">
+                        <h2><i class="bi bi-star"></i> Advanced Features</h2>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="bi bi-repeat"></i> Recurring Orders
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Set up orders that repeat automatically (e.g., weekly bread delivery)</p>
+                                        <p><strong>Setup:</strong> Create order → Select "Recurring" → Choose frequency</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="bi bi-printer"></i> Print Orders
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Print order invoices or labels for kitchen/packing</p>
+                                        <p><strong>Use:</strong> Open order → Click Print → Choose format</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="bi bi-envelope"></i> Send Notifications
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Send order updates to customers via email or SMS</p>
+                                        <p><strong>Use:</strong> Open order → Click "Send Notification"</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="bi bi-file-earmark"></i> Duplicate Order
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Create new order using items from previous order</p>
+                                        <p><strong>Use:</strong> Open order → Click "Duplicate"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Best Practices -->
+                    <section id="best-practices" class="mt-custom">
+                        <h2><i class="bi bi-check-all"></i> Best Practices</h2>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header bg-success text-white">
+                                        <i class="bi bi-check-circle"></i> DO's
+                                    </div>
+                                    <div class="card-body">
+                                        <ul>
+                                            <li>✓ Update order status regularly</li>
+                                            <li>✓ Record payments immediately</li>
+                                            <li>✓ Add delivery notes for special requests</li>
+                                            <li>✓ Confirm delivery with customers</li>
+                                            <li>✓ Keep order history for records</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header bg-danger text-white">
+                                        <i class="bi bi-x-circle"></i> DON'Ts
+                                    </div>
+                                    <div class="card-body">
+                                        <ul>
+                                            <li>✗ Forget to update status</li>
+                                            <li>✗ Skip payment recording</li>
+                                            <li>✗ Create duplicate orders</li>
+                                            <li>✗ Delete completed orders</li>
+                                            <li>✗ Miss delivery dates</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- FAQ -->
+                    <section id="faq" class="mt-custom">
+                        <h2><i class="bi bi-question-circle"></i> FAQ</h2>
+
+                        <div class="accordion" id="orderAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#order1">
+                                        Can I edit an order after it's created?
+                                    </button>
+                                </h2>
+                                <div id="order1" class="accordion-collapse collapse show" data-bs-parent="#orderAccordion">
+                                    <div class="accordion-body">
+                                        Yes, you can edit pending or processing orders. Open the order and click "Edit". You can modify items, quantities, and customer details.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#order2">
+                                        How do I handle cancellations?
+                                    </button>
+                                </h2>
+                                <div id="order2" class="accordion-collapse collapse" data-bs-parent="#orderAccordion">
+                                    <div class="accordion-body">
+                                        Click the order's Cancel button. You can optionally process a refund and add cancellation notes explaining the reason.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#order3">
+                                        Can customers track their own orders?
+                                    </button>
+                                </h2>
+                                <div id="order3" class="accordion-collapse collapse" data-bs-parent="#orderAccordion">
+                                    <div class="accordion-body">
+                                        Yes, customers receive email updates about their order status. They can also log into their account to track orders.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Navigation Buttons -->
+                    <div class="d-flex justify-content-between align-items-center mt-custom">
+                        <a href="product-guide.html" class="btn btn-outline-primary">
+                            <i class="bi bi-arrow-left"></i> Previous: Products
+                        </a>
+                        <a href="inventory-guide.html" class="btn btn-primary">
+                            Next: Inventory <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><i class="bi bi-book"></i> Bakery ERP</h5>
+                    <p>Professional management system for bakery businesses.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="login-guide.html">Login Guide</a></li>
+                        <li><a href="order-guide.html">Order Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Report a Bug</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bakery ERP System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
